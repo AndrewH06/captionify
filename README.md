@@ -55,6 +55,14 @@ Figure 2.3: _The equation for TF-IDF vectorization_
 
 However, in our case, we wanted more common words, with stronger and more relevant emoji translations. More specifically, we wanted to look for words that were not rare within our corpus, this meant wanting words with lower Inverse Document Frequency. To do this we looked for the three lowest weighted (lowest TF-IDF scores) words that had emoji translations. 
 
+### 2.2.4 Final Model
+
+<img width="705" alt="Screenshot 2024-04-02 at 5 51 19 PM" src="https://github.com/AndrewH06/captionify/assets/54915593/dac9e891-ca26-40ff-bedf-ef297a406f1d">
+
+Figure 2.4: _Final Model Structure_
+
+`input_3` contained the caption data that passed through our LSTM to be trained with the extracted features from our VGG16 network contained in `input_2`
+
 ## 2.3 Non-Machine Learning Software
 To translate image descriptions into emoji representations, we used two packages: "emoji" and "emoji-translate." Since we believe colors are an important aspect of an image, we employed the "emojize" function from the "emoji" package. Through this package, we transformed colors, red, orange, yellow, green, blue, purple, black, white, and brown, into heart emojis, correlating to its respective color.
 Furthermore, using Translator from the “emoji-translate” package, we translated each word in the description if correlated with an emoji. Focusing on the words that corresponded to an emoji, we found the word frequency as outlined in section 3.2.2. This method led us to result in the lowest three emoji-translatable words of the description. These three words were translated back into emojis, producing our three emoji caption for our image
